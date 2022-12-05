@@ -1,19 +1,15 @@
-import { useState } from 'react'
 import {HashRouter, Route, Routes, Link} from 'react-router-dom'
-import Login from "./views/Login/"
+import Layout from "./views/Layout/"
 import Home from "./views/Home/"
 import User from "./views/User/"
-function App() {
-  const [count, setCount] = useState(0)
 
+function App() {
   return (
     <HashRouter>
-      <Link to="/login/home"> <h3>首页</h3> </Link>
-      <Link to="/login/user"> <h3>用户页</h3> </Link>
       <Routes>
-        <Route path='/login' element={<Login/>}>
-          <Route path="home" element={<Home/>}/>
-          <Route path="user" element={<User/>}/>
+        <Route path='/layout' element={<Layout/>}>
+          <Route index element={<Home></Home>}></Route>
+          <Route path="user" element={<User></User>}></Route>
         </Route>
       </Routes>
     </HashRouter>
