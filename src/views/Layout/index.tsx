@@ -1,11 +1,12 @@
 import { Outlet, Link } from "react-router-dom";
+import Aside from "./aside"
 import "./layout.scss";
+
 function Layout(){
   return (
     <section id="container">
         <aside>
-          <h3> <Link to="/layout">首页</Link> </h3>
-          <h3> <Link to="/layout/user">用户页</Link> </h3>
+          <Aside></Aside>
         </aside>
         <section>
           <header>header</header>
