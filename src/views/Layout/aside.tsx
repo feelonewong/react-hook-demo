@@ -16,7 +16,7 @@ function Aside () {
 
     // 存储选中菜单的key
     sessionStorage.setItem("setSelectKeys", e.key)
-    setSelectKeys(e.key)
+    setSelectKeys(e.key);
   }
   return (
     <div>
