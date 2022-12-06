@@ -6,15 +6,28 @@ import User from "../views/User/"
 export const routerItems:Array<Object> = [
   {
     path: "/",
-    element: <Navigate to="/layout/home"></Navigate>
+    element: <Navigate to="/layout/home"></Navigate>,
+    label: "dashboard",
+    key: "/"
   },
   {
     path: "/layout",
     label: "控制台",
+    key: "layout",
     element: <Layout></Layout>,
     children: [
-      { path: "home",  element: <Home></Home>,index: true },
-      { path: "user", element: <User></User> },
+      {
+        path: "home",
+        label: "首页",
+        key: "home",
+        element: <Home></Home>
+      },
+      {
+        path: "user",
+        label: "用户页",
+        key: "user",
+        element: <User></User>
+      },
     ]
   }
 ]
