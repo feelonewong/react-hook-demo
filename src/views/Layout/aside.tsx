@@ -12,7 +12,7 @@ function Aside () {
   const handleMenuClick: MenuProps['onClick'] = (e) => {
     const keyPath = e.keyPath.reverse().join("/")
     let link = `/`+keyPath
-    navigate(link)
+    navigate(link);
 
     // 存储选中菜单的key
     sessionStorage.setItem("setSelectKeys", e.key)
