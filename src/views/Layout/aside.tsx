@@ -1,20 +1,26 @@
 
 import {useState} from "react"
-import { Menu } from 'antd';
+import { Menu, MenuProps } from 'antd';
 import { useNavigate } from "react-router-dom";
 import {routerItems} from "../../router/index"
 
-function Aside() {
-  const [router] = useState(routerItems)
-  const storageSelectKeys = sessionStorage.getItem("setSelectKeys")
-  const [selectKeys, setSelectKeys] = useState(storageSelectKeys)
+// 选中的key
+const storageSelectKeys = sessionStorage.getItem("setSelectKeys") || '';
+// 展开的key
+const defaultOpenKeys = JSON.parse(sessionStorage.getItem("setOpenKeys")||'[]') || []; //默认是[]数组
 
-  const defaultOpenKeys = JSON.parse(sessionStorage.getItem('setOpenKeys'))
-  const [openKeys, setOpenKeys] = useState(defaultOpenKeys);
-  const navigate = useNavigate()
+function Aside() {
+  // 路由
+  const [router] = useState(routerItems)
+  // 选择的菜单
+  const [selectKeys, setSelectKeys] = useState<string>(storageSelectKeys);
+  // 展开的菜单
+  const [openKeys, setOpenKeys] = useState<[]>(defaultOpenKeys);
+  // react-router-dom跳转的api
+  const navigate = useNavigate();
+
   const handleMenuClick: MenuProps['onClick'] = (e) => {
-    const keyPath = e.keyPath
-    
+    const keyPath = e.keyPath    
     // 存储选中菜单的key
     const copyKeyPath = JSON.parse(JSON.stringify(keyPath))
     setOpenKeys(copyKeyPath.slice(1))
