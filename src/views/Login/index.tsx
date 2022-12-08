@@ -1,9 +1,16 @@
-import {Outlet} from "react-router-dom"
+import "./login.scss"
+import BackgroundImg from "../../assets/login-bg.jpg"
+
+const styleLoginBg = {
+  backgroundImage: `url(${BackgroundImg})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: "cover",
+
+};
 function Login() {
   return (
-    <div>
-      {/* <div>登录页</div> */}
-      <Outlet></Outlet>
+    <div className="login-container" style={styleLoginBg}>
+      
     </div>
   )
 }

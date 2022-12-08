@@ -2,13 +2,20 @@ import { RouteObject, useRoutes, Navigate } from "react-router-dom";
 import Layout from "../views/Layout/"
 import Home from "../views/Home/"
 import User from "../views/User/"
+import Login from "../views/Login/";
 
-export const routerItems:Array<Object> = [
+export const routerItems: Array<Object> = [
   {
     path: "/",
-    element: <Navigate to="/layout/home"></Navigate>,
+    element: <Navigate to="/login"></Navigate>,
     label: "dashboard",
-    key: "/"
+    key: "/",
+  },
+  {
+    path: "/login",
+    element: <Login></Login>,
+    label: "登录页",
+    key: "login",
   },
   {
     path: "/layout",
@@ -27,18 +34,18 @@ export const routerItems:Array<Object> = [
             label: "首页",
             key: "home",
             element: <Home></Home>,
-          }
-        ]
+          },
+        ],
       },
       {
         path: "user",
         label: "用户页",
         key: "user",
-        element: <User></User>
+        element: <User></User>,
       },
-    ]
-  }
-]
+    ],
+  },
+];
 
 const GetRouters =  ()=>{
   const routes:RouteObject[] = useRoutes(routerItems)
