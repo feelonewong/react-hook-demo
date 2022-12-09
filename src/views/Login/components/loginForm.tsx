@@ -1,8 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"
 import { Button, Form, Input } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 function LoginForm() {
+  const navigate = useNavigate();
   const onFinish = (values: any) => {
+    /**
+     * 1.token用户的唯一标识
+     * 2.登录时后端生产的token字符串返回给前端
+     * 3.前端将token存储到cookie中
+     * */
+    navigate("/layout/home")
+    // 模拟跳转成功:存下token
+    localStorage.setItem("token", "sdfdsfdfd45sdf51ds23f1sdf");
     console.log("Success:", values);
   };
 
@@ -13,7 +23,6 @@ function LoginForm() {
     <>
       <Form
         name="basic"
-        initialValues={{ remember: true }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         autoComplete="off"

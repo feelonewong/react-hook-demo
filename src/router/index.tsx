@@ -28,14 +28,6 @@ export const routerItems: Array<Object> = [
         label: "首页",
         key: "home",
         element: <Home></Home>,
-        children: [
-          {
-            path: "home",
-            label: "首页",
-            key: "home",
-            element: <Home></Home>,
-          },
-        ],
       },
       {
         path: "user",
